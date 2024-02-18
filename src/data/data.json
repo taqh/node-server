@@ -1,0 +1,60 @@
+{
+  "articles": [
+    {
+      "id": "whcgduaurhhcjbzmngf2840r9",
+      "title": "Evolution: What if Darwin’s was wrong?",
+      "author": "Geotech4all",
+      "createdAt": "July 2nd, 2024",
+      "cover": "/assets/images/darwin.png",
+      "content": "The difference between right and wrong is a function of perspective. Now, what do you think an agnostic would tell you about God and the exact origin of life?"
+    },
+    {
+      "id": "y4368r87fgu3946280fygyucg4",
+      "title": "CATASTROPHISM: Plant, Animal, and Human",
+      "author": "Geotech4all",
+      "createdAt": "July 2nd, 2024",
+      "cover": "/assets/images/catastrophism.png",
+      "content": "At the onset of the quest of humans to know more about the earth. Many ideas, theories, and philosophies have sprung up to explain the origin of the earth..."
+    },
+    {
+      "id": "g2735082rdydyt9286edcsv286weW",
+      "title": "Beyond Faunal succession: What's life Morphing to?",
+      "author": "Geotech4all",
+      "createdAt": "July 2nd, 2024",
+      "cover": "/assets/images/fauna.png",
+      "content": "As species become complex up the strata, so does generation become more complex with increasing knowledge and technological advancement..."
+    },
+    {
+      "id": "GSUS675s63egdwye9dhGDIGU323D67",
+      "title": "The Present is the Key to the Past. What is the Key to the future?",
+      "author": "Geotech4all",
+      "createdAt": "July 2nd, 2024",
+      "cover": "/assets/images/keytopast.png",
+      "content": "The past was the present. The present was the future. And the future is the present. Let's view Charles Lyell and James Hutton Earth principle through..."
+    },
+    {
+      "id": "si8yq73d6dguehss978f6dssgd7s8d",
+      "title": "AFRICA VS THE WORLD: THE BATTLE FOR POWER AND...",
+      "author": "Geotech4all",
+      "createdAt": "July 2nd, 2024",
+      "cover": "/assets/images/africa.png",
+      "content": "Africa is the world's second-largest continent, covering approximately 30 million square kilometers and comprising 54 countries. Africa is home to a diverse range of..."
+    },
+    {
+      "id": "fbeo7r820ydu39ddg9t9236td97d9w67",
+      "title": "Importance of geotextile in geotechnical industry",
+      "author": "Geotech4all",
+      "createdAt": "July 2nd, 2024",
+      "cover": "/assets/images/geotextile.png",
+      "content": "Geotextile is a synthetic fabric made of polypropylene, polyethylene or a combination of both that is used in various geotechnical applications. The..."
+    }
+  ],
+  "services": [
+    {
+      "name": "e.g drilling services",
+      "breif": "short description",
+      "details": "detailed description",
+      "images": "optional"
+    }
+  ]
+}

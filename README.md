@@ -1,2 +1,3 @@
 # geotech4all-server
-Everything geoscience...
+
+REST API for Geotech4all
