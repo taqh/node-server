@@ -1,38 +1,73 @@
+import { Request, Response, NextFunction } from 'express';
+import mongoose from 'mongoose';
+import multer from 'multer';
 const express = require('express');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
 require('dotenv').config();
+
+const blogRoutes = require('./routes/blogs');
+const authRoutes = require('./routes/auth');
 
 const app = express();
 
-app.use(bodyParser.json());
-
-// allow access to the api from any origin
-app.use(cors());
-
-
-
-// app.use((req, res, next) => {
-//    res.setHeader('Access-Control-Allow-Origin', '*'); // * means any origin
-//    res.setHeader(
-//      'Access-Control-Allow-Methods',
-//      'GET, POST, PATCH, PUT, DELETE'
-//    );
-//    res.setHeader('Access-Control-Allow-Headers', ' Content-Type, Authorization');
- 
-//    next();
-//  });
-
-const blogRoutes = require('./routes/blogs');
-
-const router = express.Router();
-
-app.use('/', blogRoutes)
-
-const port = process.env.PORT || 5000;
-
-app.listen(5000, () => {
-  console.log(`Server is 🔥 at http://localhost:${port}/blogs`);
+// multer settings
+const fileStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'images');
+  },
+  filename: (req, file, cb) => {
+    cb(null, new Date().toISOString() + '-' + file.originalname);
+  },
 });
+
+const fileFilter: multer.Options['fileFilter'] = (
+  req: Request,
+  file,
+  cb: multer.FileFilterCallback
+) => {
+  if (
+    file.mimetype === 'image/png' ||
+    file.mimetype === 'image/jpg' ||
+    file.mimetype === 'image/jpeg'
+  ) {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
+// log incoming request parameters
+const loggingMiddleware = (req: Request, res: Response, next: NextFunction) => {
+  console.log('Route: ' + req.path);
+  console.log('Method: ' + req.method);
+  next();
+};
+
+// middleware
+app.use(cors());
+app.use(bodyParser.json());
+// app.use(multer({storage: fileStorage, fileFilter: fileFilter})).single('image');
+app.use(loggingMiddleware);
+
+// Api routes
+app.use('/', blogRoutes);
+app.use('/auth', authRoutes);
+
+const port = process.env.PORT || 'http://localhost:5000';
+const URI =
+  process.env.MONGODB_URI ||
+  'mongodb+srv://taqibrahim:6WEmTQYeF0Lsf8bt@cluster0.1cs4zgq.mongodb.net/geotech?retryWrites=true&w=majority&appName=Cluster0';
+
+// Connect to the database
+mongoose
+  .connect(URI, {})
+  .then(() => {
+    console.log('Connected 📡 to MongoDB');
+    app.listen(5000, () => {
+      console.log(`Server is 🔥 at ${port}`);
+    });
+  })
+  .catch((err: any) => {
+    console.log('Failed to connect to MongoDB', err);
+  });

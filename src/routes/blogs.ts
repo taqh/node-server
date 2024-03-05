@@ -1,19 +1,16 @@
-
-const blogController = require('../controller/blog');
+const blogController = require('../controllers/blog');
+const router = require('express').Router();
 
 // GET /comments
-router.get('/blogs', blogController.getArticles);
+router.get('/', blogController.getArticles);
 
 // POST /blogs
-router.post('/blogs', blogController.createArticle);
+router.post('/', blogController.createArticle);
 
 // PATCH /blogs/:id
-router.patch('/blogs/:id', blogController.updateArticle);
-
-// PUT /blogs/:id
-router.put('/blogs/:id', blogController.createArticle);
+router.patch('/:id', blogController.updateArticle);
 
 // DELETE /blogs/:id
-router.delete('/blogs/:id', blogController.deleteArticle);
+router.delete('/:id', blogController.deleteArticle);
 
 module.exports = router;
