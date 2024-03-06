@@ -2,10 +2,10 @@
   "name": "geotech4all-server",
   "description": "Geotech4All's server side codebase",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "src/app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
+    "start": "node dist/app.js",
     "dev": "nodemon",
     "build": "tsc"
   },
