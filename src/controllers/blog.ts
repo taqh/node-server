@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { MongooseError } from 'mongoose';
 const Article = require('../models/blog');
-import jwt from 'jsonwebtoken';
 
 export const getArticles = (
   req: Request,
@@ -27,17 +26,7 @@ export const createArticle = (
     content: req.body.content,
     author: req.body.author,
   });
-  const token = req.get('Authorization')?.split(' ')[1];
-  let decodedToken;
-  try {
-    decodedToken = jwt.verify(token!, 'thiscodeisforageotechwriter');
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json('Internal server error');
-  }
-  if (!decodedToken) {
-    return res.status(401).json('Not authorized');
-  }
+  
   article
     .save()
     .then((result: any) => {

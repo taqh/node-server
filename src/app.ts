@@ -52,6 +52,7 @@ app.use(loggingMiddleware);
 
 // Api routes
 app.use('/', blogRoutes);
+
 app.use('/auth', authRoutes);
 
 const port = process.env.PORT || 'http://localhost:5000';
