@@ -57,8 +57,7 @@ app.use('/auth', authRoutes);
 
 const port = process.env.PORT || 'http://localhost:5000';
 const URI =
-  process.env.MONGODB_URI ||
-  'mongodb+srv://taqibrahim:6WEmTQYeF0Lsf8bt@cluster0.1cs4zgq.mongodb.net/geotech?retryWrites=true&w=majority&appName=Cluster0';
+  process.env.MONGODB_URI;
 
 // Connect to the database
 mongoose
